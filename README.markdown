@@ -78,7 +78,7 @@ You can unset dispatch-macro-character from readtable explicitly.
       (unset-dispatch-macro-character #\# #\( rt))
 
 
-#### `Function: remove-dispatch-macro-character disp-char (&optional *readtable*)`
+#### Function: `remove-dispatch-macro-character disp-char (&optional *readtable*)`
 
 
 Remove the dispatch-character from current readtable.
