@@ -29,9 +29,9 @@ Test
     (asdf:test-system :unset-macro-character)
 
 
-Run under following implementations:
+Run under following implementations (require `lisp-unit`):
 
-以下の実装でのテストを行っています。
+以下の実装でのテストを行っています。(`lisp-unit` でテストしています)
 
 * SBCL 1.0.53
 * CMUCL 20b
