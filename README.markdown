@@ -4,25 +4,18 @@ UNSET-MACRO-CHARACTER
 
 UNSET-MACRO-CHARACTER is a operator to unregister the macro character in a readtable.
 
-Run under SBCL or CMUCL. I'm going to test in other implementations in the near.
+Run under following implementations, SBCL, CMUCL and Clozure CL.
 
 It is risky to modify the runtime readtable, so use at your own risk.
 
-
 UNSET-MACRO-CHARACTER はリードテーブル中のマクロ文字登録を削除するためのオペレータです。
 
-いまのところ SBCL と CMUCL で動作します。
+SBCL, CMUCL, Clozure CL での動作を確認しています。
 
 リードテーブルを変更するのはそれなりにリスクのあることです。
 
 危険性を理解した上で、自己責任での使用でお願いします。
 
-
-
-Requirement
------------
-* SBCL
-* CMUCL
 
 Export
 ------
@@ -30,17 +23,23 @@ Export
 * Function: `unset-dispatch-macro-character`
 * Function: `remove-dispatch-macro-charater`
 
-
 Test
 ----
 
     (asdf:test-system :unset-macro-character)
 
 
+Run under following implementations:
+
+以下の実装でのテストを行っています。
+
+* SBCL 1.0.53
+* CMUCL 20b
+* Clozure CL 1.6
+
 
 Usage
 -----
-
 
 #### Function: `unset-macro-character char (&optional *readtable*)`
 
