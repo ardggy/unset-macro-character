@@ -12,6 +12,7 @@
                (:file "nilf")
                (:file "unset-macro-character"))
   :perform (asdf:test-op :before (op c)
-                         (asdf:load-system :unset-macro-character.test))
+                         (let ((*readtable* (copy-readtable nil)))
+                           (asdf:load-system :unset-macro-character.test)))
   :perform (asdf:test-op :after (op c)
                          (lisp-unit:run-all-tests :unset-macro-character.test)))
