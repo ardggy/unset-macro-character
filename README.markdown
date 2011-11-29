@@ -34,8 +34,8 @@ Run under following implementations (require `lisp-unit`):
 以下の実装でのテストを行っています。(`lisp-unit` でテストしています)
 
 * SBCL 1.0.53
-* CMUCL 20b
-* Clozure CL 1.6
+* CMUCL 20b, 20c
+* Clozure CL 1.6, 1.7
 
 
 Usage
