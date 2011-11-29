@@ -51,13 +51,17 @@
 
     (make-dispatch-macro-character #\$ nil)
     (multiple-value-bind (f nt) (get-macro-character #\$)
-      (assert-eql (values (get-macro-character #\# #1#) nil)
-                  (values f nt)))
+      #-clisp (assert-eql (values (get-macro-character #\# #1#) nil)
+                          (values f nt))
+      #+clisp (assert-eql (values t nil) (values (functionp f) nt))
+      )
 
     (make-dispatch-macro-character #\% t)
     (multiple-value-bind (f nt) (get-macro-character #\%)
-      (assert-eql (values (get-macro-character #\# #1#) t)
-                  (values f nt)))
+      #-clisp (assert-eql (values (get-macro-character #\# #1#) t)
+                          (values f nt))
+      #+clisp (assert-eql (values t t) (values (functionp f) nt))
+      )
 
     (remove-dispatch-macro-character #\$)
     (remove-dispatch-macro-character #\%)
@@ -72,14 +76,21 @@
   (let ((rt #1=(copy-readtable nil)))
 
     (make-dispatch-macro-character #\$ nil rt)
+
     (multiple-value-bind (f nt) (get-macro-character #\$ rt)
-      (assert-eql (values (get-macro-character #\# #1#) nil)
-                  (values f nt)))
+      #-clisp (assert-eql (values (get-macro-character #\# #1#) nil)
+                          (values f nt))
+      #+clisp (assert-eql (values t nil) (values (functionp f) nt))
+      )
+
 
     (make-dispatch-macro-character #\% t rt)
-    (multiple-value-bind (fn nt) (get-macro-character #\% rt)
-      (assert-eql (values (get-macro-character #\# #1#) t)
-                  (values fn nt)))
+
+    (multiple-value-bind (f nt) (get-macro-character #\% rt)
+      #-clisp (assert-eql (values (get-macro-character #\# #1#) t)
+                          (values f nt))
+      #+clisp (assert-eql (values t t) (values (functionp f) nt))
+      )5
 
     (remove-dispatch-macro-character #\$ rt)
     (remove-dispatch-macro-character #\% rt)
