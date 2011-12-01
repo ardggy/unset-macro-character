@@ -4,13 +4,13 @@ UNSET-MACRO-CHARACTER
 
 UNSET-MACRO-CHARACTER is a operator to unregister the macro character in a readtable.
 
-Run under following implementations, SBCL, CMUCL, Clozure CL and CLISP.
+Run under the following implementations, SBCL, CMUCL, Clozure CL, ECL and CLISP.
 
 It is risky to modify the runtime readtable, so use at your own risk.
 
 UNSET-MACRO-CHARACTER はリードテーブル中のマクロ文字登録を削除するためのオペレータです。
 
-SBCL, CMUCL, Clozure CL, CLISP での動作を確認しています。
+SBCL, CMUCL, Clozure CL, ECL, CLISP での動作を確認しています。
 
 リードテーブルを変更するのはそれなりにリスクのあることです。
 
@@ -29,15 +29,15 @@ Test
     (asdf:test-system :unset-macro-character)
 
 
-Run under following implementations (require `lisp-unit`):
+Tested under the following implementations (require `lisp-unit`):
 
 以下の実装でのテストを行っています。(`lisp-unit` でテストしています)
 
 * SBCL 1.0.53
-* CMUCL 20b, 20c
-* Clozure CL 1.6, 1.7
+* CMUCL 20b 20c
+* Clozure CL 1.6 1.7
 * CLISP 2.49
-
+* ECL 11.1
 
 Usage
 -----
@@ -97,13 +97,11 @@ You can remove dispatch-character from readtable explicitly.
       (remove-dispatch-macro-character #\# rt))
 
 
-NOTE
+TODO
 ====
 
-Current implement UNSET-MACRO-CHARACTER with `SET-SYNTAX-FROM-CHAR`.
-
-UNSET-MACRO-CHARACTER の実装には `SET-SYNTAX-FROM-CHAR` を利用しています。
-
+* Refactoring the tests.
+* Loading without lisp-unit.
 
 LICENSE
 =======
