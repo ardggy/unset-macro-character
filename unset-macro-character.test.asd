@@ -8,4 +8,6 @@
   :serial t
   :components ((:file "package")
                (:module "t"
-                        :components ((:file "t")))))
+                        :components ((:file "unset-macro-character")
+                                     (:file "unset-dispatch-macro-character")
+                                     (:file "remove-dispatch-macro-character")))))
