@@ -4,7 +4,7 @@
 
 (in-package #:unset-macro-character.test)
 
-(define-test #:current
+(define-test #:unset-macro-character.current
   (let ((*readtable* #1=(copy-readtable nil)))
     (set-macro-character #\[ (get-macro-character #\( ))
     (unset-macro-character #\[)
@@ -13,7 +13,7 @@
       (assert-eql (get-macro-character #\[ #1#)
                   (values f nt)))))
 
-(define-test #:saved
+(define-test #:unset-macro-character.saved
   (let ((rt #1=(copy-readtable nil))
         (*readtable* #1#))
     (set-macro-character #\[ (get-macro-character #\( ) nil rt)
