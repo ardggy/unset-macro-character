@@ -1,13 +1,14 @@
-;;;; asd
+;;;; unset-macro-character.test.asd
 
 (in-package #:cl-user)
 
 (asdf:defsystem #:unset-macro-character.test
-  :depends-on (#:lisp-unit
-               #:unset-macro-character)
   :serial t
+  :depends-on (#:fiveam
+               #:unset-macro-character)
   :components ((:file "package")
                (:module "t"
-                        :components ((:file "unset-macro-character")
+                        :components ((:file "suite")
+                                     (:file "unset-macro-character")
                                      (:file "unset-dispatch-macro-character")
                                      (:file "remove-dispatch-macro-character")))))
