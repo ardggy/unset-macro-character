@@ -13,9 +13,4 @@
   (:import-from #:unset-macro-character
                 #:unset-macro-character
                 #:unset-dispatch-macro-character
-                #:remove-dispatch-macro-character)
-  (:import-from #:lisp-unit
-                #:define-test
-                #:assert-eql
-                #:assert-true
-                #:run-all-tests))
+                #:remove-dispatch-macro-character))
