@@ -29,9 +29,9 @@ Test
     (asdf:test-system :unset-macro-character)
 
 
-Tested under the following implementations (require `lisp-unit`):
+Tested under the following implementations (require `fiveam`):
 
-以下の実装でのテストを行っています。(`lisp-unit` でテストしています)
+以下の実装でのテストを行っています。(`fiveam` でテストしています)
 
 * SBCL 1.0.53
 * CMUCL 20b 20c
@@ -101,7 +101,6 @@ TODO
 ====
 
 * Refactoring the tests.
-* Loading without lisp-unit.
 
 LICENSE
 =======
