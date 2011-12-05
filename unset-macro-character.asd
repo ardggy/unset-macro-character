@@ -3,16 +3,17 @@
 (in-package #:cl-user)
 
 (asdf:defsystem #:unset-macro-character
-  :version "0.1"
+  :version "0.5"
   :author "Toshihisa Abe"
   :license "MIT"
   :serial t
+  :depends-on (#:fiveam)
   :components ((:file "package")
-               ;; (:file "defsetf")
                (:file "nilf")
                (:file "unset-macro-character"))
   :perform (asdf:test-op :before (op c)
                          (let ((*readtable* (copy-readtable nil)))
                            (asdf:load-system :unset-macro-character.test)))
   :perform (asdf:test-op :after (op c)
-                         (lisp-unit:run-all-tests :unset-macro-character.test)))
+                         (funcall (intern "RUN!" :5am) :test)))
+
